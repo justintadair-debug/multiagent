@@ -5,7 +5,9 @@ import json
 import time
 import signal
 import subprocess
-from database import enqueue_task, get_task, list_tasks, read_memory, init_db, mark_failed
+from datetime import datetime
+from database import enqueue_task, get_task, list_tasks, read_memory, init_db, mark_failed, get_task_attempts
+from alerts import fire_alert
 from agents.builder import BuilderDirector
 from agents.researcher import ResearcherDirector
 from agents.analyst import AnalystDirector
@@ -95,7 +97,21 @@ def run_task(task_str: str):
             mark_failed(task_id, "Timed out")
             audit_log(director_name, "timeout", task_str, result="timeout", task_id=task_id)
             print(f"\n⏱️  Task timed out after {TASK_TIMEOUT_SECONDS}s")
+            attempts = get_task_attempts(task_id)
+            if attempts >= 2:
+                fire_alert(task_id, f"Timed out after {TASK_TIMEOUT_SECONDS}s", attempts)
             return None
+
+        # Check for pending_approval stall (>10 min)
+        if task and task["status"] == "pending_approval" and task.get("updated_at"):
+            try:
+                stall_s = time.time() - datetime.fromisoformat(task["updated_at"]).timestamp()
+                if stall_s > 600:
+                    attempts = get_task_attempts(task_id)
+                    fire_alert(task_id, "Awaiting approval >10 min", attempts)
+            except Exception:
+                pass
+
         time.sleep(1)
 
     if task["status"] == "done":
@@ -105,6 +121,9 @@ def run_task(task_str: str):
     else:
         audit_log(director_name, "task_failed", task_str, result=task["result"] or "unknown", task_id=task_id)
         print(f"\n❌ Task failed: {task['result']}")
+        attempts = get_task_attempts(task_id)
+        if attempts >= 2:
+            fire_alert(task_id, task["result"] or "Task failed", attempts)
         return None
 
 

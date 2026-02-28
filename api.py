@@ -72,6 +72,17 @@ def recent_tasks(limit: int = 10):
     return [dict(r) for r in rows]
 
 
+@app.get("/alerts")
+def get_alerts():
+    """Return last 20 lines from alerts.log as a JSON array of strings."""
+    from pathlib import Path
+    log_path = Path(__file__).parent / "alerts.log"
+    if not log_path.exists():
+        return []
+    lines = log_path.read_text(encoding="utf-8").strip().splitlines()
+    return lines[-20:]
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8094)

@@ -109,3 +109,12 @@ def list_tasks(limit: int = 20) -> list:
 def mark_failed(task_id: int, reason: str = "Unknown"):
     """Mark a task as failed with a reason."""
     update_task(task_id, "failed", reason)
+
+
+def get_task_attempts(task_id: int) -> int:
+    """Return the current attempts count for a task (0 if not found)."""
+    with get_connection() as conn:
+        row = conn.execute(
+            "SELECT attempts FROM tasks WHERE id = ?", (task_id,)
+        ).fetchone()
+        return row["attempts"] if row else 0
