@@ -1,0 +1,17 @@
+{"ts": "2026-02-28T04:55:30.769664+00:00", "agent": "neo", "action": "route", "detail": "scan ticker NVDA", "result": "analyst"}
+{"ts": "2026-02-28T04:55:30.770898+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner --watchlist", "result": "ok"}
+{"ts": "2026-02-28T04:56:16.638112+00:00", "agent": "neo", "action": "route", "detail": "scan ticker NVDA", "result": "analyst"}
+{"ts": "2026-02-28T04:56:16.639572+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner --watchlist", "result": "ok"}
+{"ts": "2026-02-28T04:56:35.387746+00:00", "agent": "neo", "action": "route", "detail": "scan ticker NVDA", "result": "analyst"}
+{"ts": "2026-02-28T04:56:35.389181+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner --watchlist", "result": "ok"}
+{"ts": "2026-02-28T04:56:54.358048+00:00", "agent": "neo", "action": "route", "detail": "scan ticker NVDA", "result": "analyst"}
+{"ts": "2026-02-28T04:56:54.359456+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner --watchlist", "result": "ok"}
+{"ts": "2026-02-28T04:57:32.282144+00:00", "agent": "neo", "action": "route", "detail": "scan ticker NVDA", "result": "analyst"}
+{"ts": "2026-02-28T04:57:32.283361+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner --watchlist", "result": "ok"}
+{"ts": "2026-02-28T04:58:20.449443+00:00", "agent": "neo", "action": "route", "detail": "scan ticker NVDA", "result": "analyst"}
+{"ts": "2026-02-28T04:58:20.450982+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner --ticker NVDA", "result": "ok"}
+{"ts": "2026-02-28T05:00:35.392816+00:00", "agent": "neo", "action": "route", "detail": "scan ticker NVDA", "result": "analyst"}
+{"ts": "2026-02-28T05:00:35.394149+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner NVDA", "result": "ok"}
+{"ts": "2026-02-28T05:01:21.180581+00:00", "agent": "analyst", "action": "timeout", "detail": "scan ticker NVDA", "result": "timeout", "task_id": 10}
+{"ts": "2026-02-28T05:01:40.826464+00:00", "agent": "analyst", "action": "sec_scan_done", "detail": "[NVDA] Score: 96/100 \u2014 Genuine AI Adopter [stable]", "result": "ok"}
+{"ts": "2026-02-28T05:01:40.838614+00:00", "agent": "analyst", "action": "sec_scan_start", "detail": "/Users/justinadair/projects/sec-scanner/.venv/bin/sec-scanner NVDA", "result": "ok"}

@@ -21,7 +21,8 @@ DIRECTORS = {
 ROUTING = {
     "builder":    ["build", "code", "create", "write", "fix", "implement", "develop"],
     "researcher": ["research", "find", "search", "look up", "what is", "who is", "explain", "summarize"],
-    "analyst":    ["analyze", "analyse", "scan", "report", "compare", "review data", "stats", "metrics"],
+    "analyst":    ["analyze", "analyse", "scan", "report", "compare", "review data", "stats", "metrics",
+                   "sec scan", "sec scanner", "ai washing", "watchlist scan", "scan ticker"],
 }
 
 # Tasks containing these keywords require human approval before shell execution
