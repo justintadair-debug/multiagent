@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+agents/__init__.py
+agents/analyst.py
+agents/base.py
+agents/builder.py
+agents/researcher.py
+multiagent.egg-info/PKG-INFO
+multiagent.egg-info/SOURCES.txt
+multiagent.egg-info/dependency_links.txt
+multiagent.egg-info/requires.txt
+multiagent.egg-info/top_level.txt
+workers/__init__.py
+workers/claude_worker.py
+workers/shell_worker.py
